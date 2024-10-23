@@ -1,7 +1,7 @@
 @file:OptIn(ExperimentalMaterialApi::class, ExperimentalMaterialApi::class)
 
 package co.yml.charts.ui.linechart
-
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -514,6 +514,8 @@ fun DrawScope.drawHighLightOnSelectedPoint(
             if (x >= columnWidth && x <= size.width - paddingRight.toPx()) {
                 selectionHighlightPoint?.draw?.let { it(this, Offset(x, y)) }
                 if (selectionHighlightPoint?.isHighlightLineRequired == true) {
+                    Log.d("cdvfd", "x: " + x.toString())
+                    Log.d("cdvfd", "y: " + y.toString())
                     selectionHighlightPoint.drawHighlightLine(
                         this, Offset(x, yBottom), Offset(x, y)
                     )
